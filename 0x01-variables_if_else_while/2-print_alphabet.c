@@ -6,9 +6,12 @@
  */
 int main(void)
 {
-char lowerCase;
-for (lowerCase = a; lowerCase <= z; lowerCase++)
-putchar(lowerCase);
-putchar(n);
-return (0);
+
+	char lowerCase;
+
+	for (lowerCase = 'a'; lowerCase <= 'z'; lowerCase++)
+	putchar(lowerCase);
+	putchar('\n');
+
+	return (0);
 }
