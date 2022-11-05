@@ -1,60 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int is_number(char *str);
-
 /**
- * main - Entry point
- * @argc: arg count
- * @argv: arg vector
- * Return: success
+ * main - adds positive numbers.
+ * @argc: argument count
+ * @argv: arguments
+ *
+ * Return: 0
  */
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-  int result = 0, i;
+	int i, n, sum = 0;
+	char *flag;
 
-  if (argc > 1)
-    {
-      for (i = 1; i < argc; i++)
+	if (argc < 2)
 	{
-	  if (is_number(argv[i]) == 1)
-	    {
-	      printf("Error\n");
-	      return (1);
-	    }
-	  else
-	    result += strtol(argv[i], NULL, 10);
+		printf("0\n");
+		return (0);
 	}
-      printf("%d\n", result);
-    }
-  else
-    {
-      printf("0\n");
-      return (0);
-    }
 
-  exit(EXIT_SUCCESS);
-}
+	for (i = 1; argv[i]; i++)
+	{
+		n = strtol(argv[i], &flag, 10);
+		if (*flag)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		else
+		{
+			sum += n;
+		}
+	}
+	printf("%d\n", sum);
 
-/**
- * is_number - checks if a character is a number
- * @str: param to check
- * Return: 0 if true else 1
- */
-
-int is_number(char *str)
-{
-  int i = 0;
-
-  if (str[0] == '-')
-    i = 1;
-
-  for (; str[i]; i++)
-    {
-      if (*(str + i) < '0' || *(str + i) > '9')
-	return (1);
-    }
-
-  return (0);
+	return (0);
 }
