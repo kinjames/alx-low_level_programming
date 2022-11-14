@@ -1,5 +1,3 @@
-20 lines (19 sloc)  356 Bytes
-
 #include "dog.h"
 
 /**
